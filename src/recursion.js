@@ -110,7 +110,27 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
+//input: an integer (positive or negative)
+//output: single integer representing sum of ints between given integer (noninclusive) and zero
+//edge case: none
+//constraint: must be an integer
+//base case: if number is zero, return zero
+
+
+//if n is zero
+  //return zero
+//else if n is positive
+  //return n-1 + the result of calling sumBelow on n-1
+//else
+  //return n+1 + the result of calling sumBelow on n+1
 var sumBelow = function(n) {
+  if (n === 0) {
+    return 0
+  } else if (n > 0) {
+    return n-1 + sumBelow(n-1);
+  } else {
+    return n+1 + sumBelow(n+1);
+  }
 };
 
 // 6. Get the integers within a range (x, y).

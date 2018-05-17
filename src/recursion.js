@@ -80,7 +80,31 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
+//input: an integer (positive or negative)
+//output: a boolean representing if number is even
+//edge cases: 
+//constraints: cannot use modulo 
+//base cases: if number is 0, it is even (true). If its one, it's odd (false).
+
+//create a numEven variable
+//if n is zero
+  //isEven true
+//else if n is one
+  //isEven false
+//else
+  //return the result of calling isEven on n-2
+  //
+//return isEven
 var isEven = function(n) {
+  var numEven;
+  if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  } else {
+    return isEven(Math.abs(n)-2);
+  }
+  return numEven;
 };
 
 // 5. Sum all integers below a given integer.

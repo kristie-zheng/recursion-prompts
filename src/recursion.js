@@ -223,11 +223,47 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string.length === 0) {
+    return '';
+  } else {
+    return string[string.length-1] + reverse(string.slice(0, string.length-1));
+  }
 };
+
+//input: a string
+//output: a reversed version of a string
+//edge cases: empty string should return empty
+//constraints: cannot use native reverse method
+//base case: when string is empty, return ''
+
+//if string.length === 0
+  //return '';
+//else
+  //return result of last letter + calling reverse on string with last letter sliced off
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  if (string.length === 1) {
+    return true;
+  } else if (string[0] === string[string.length-1]) {
+    return palindrome(string.slice(1, string.length-1));
+  } else {
+    return false;
+  }
 };
+//input: a string
+//output: a boolean representing if string is palindrome
+//edge cases: single letter should return true
+//constraints: no use of native reverse
+//base case: when string is length one, return true
+
+//if string.length === 1
+  //return true
+//else if string[0] === string[string.length -1] is true
+  //return result of calling palindrome on str with first and last letters sliced off
+//else
+  //return false
+
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.

@@ -350,7 +350,28 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  var resultArray = [];
+  if (str.length === 0){
+    return resultArray;
+  }
+  else {
+  resultArray.push(str[0]);
+  str = str.slice(1);
+  return resultArray.concat(createArray(str));
+  }
 };
+//input: string
+//output: an array where each char of the string occupies an index
+//edge cases: empty string would yield empty array
+//constraints: none
+//base case: when string has length of zero
+
+//declare a results array
+//if string has length of zero
+  //return resultArray
+//push string at index zero into that array
+//slice the string
+//return the result of concatenating the result array to the array made by calling createArray on the sliced str
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {

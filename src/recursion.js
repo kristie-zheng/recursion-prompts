@@ -353,8 +353,7 @@ var createArray = function(str) {
   var resultArray = [];
   if (str.length === 0){
     return resultArray;
-  }
-  else {
+  } else {
   resultArray.push(str[0]);
   str = str.slice(1);
   return resultArray.concat(createArray(str));
@@ -375,8 +374,29 @@ var createArray = function(str) {
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+  var reversedArray = [];
+  if (array.length === 0) {
+    return reversedArray;
+  } else {
+    reversedArray.push(array[array.length-1]);
+    array = array.slice(0, array.length-1);
+    return reversedArray.concat(reverseArr(array));
+  }
 };
 
+//input: an array
+//output: a reversed version of the array
+//constraints: none
+//edge cases: none
+//base case: if array is empty, return empty reversedArray variable
+
+//create a reversedArray []
+//if the array.length is 0 
+  //return reversedArray
+//else
+  //push array at last index (array[array.length-1]) into the reversedArray
+  //slice out last index
+  //return reversedArray concatenated with result of calling that function on the sliced array
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]

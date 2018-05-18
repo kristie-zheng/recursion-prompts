@@ -243,10 +243,13 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  if (string.length === 1) {
+  string = string.toLowerCase();
+  if (string.length === 1 || string.length === 0) {
     return true;
   } else if (string[0] === string[string.length-1]) {
-    return palindrome(string.slice(1, string.length-1));
+    string = string.slice(1, string.length-1);
+    console.log(string);
+    return palindrome(string);
   } else {
     return false;
   }
@@ -254,10 +257,10 @@ var palindrome = function(string) {
 //input: a string
 //output: a boolean representing if string is palindrome
 //edge cases: single letter should return true
-//constraints: no use of native reverse
+//constraints: no use of native reverse; ignores capital letters and spaces
 //base case: when string is length one, return true
 
-//if string.length === 1
+//if string.length === 1 or string.length === 0 (for even numbered lengths)
   //return true
 //else if string[0] === string[string.length -1] is true
   //return result of calling palindrome on str with first and last letters sliced off

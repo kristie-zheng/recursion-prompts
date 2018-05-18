@@ -136,7 +136,35 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var integersInRange = [];
+  if (x === y) {
+    return integersInRange;
+  } else if (x < y) {
+    integersInRange.push(x+1);
+    return integersInRange.concat(range(x+1, y));
+  } else {
+    integersInRange.push(x-1);
+    return integersInRange.concat(range(x-1, y));
+  }
 };
+
+
+//inputs: a smaller and a larger integer (negative or positive)
+//outputs: an array of integers between x and y (noninclusive)
+//edge case: if x and y are the same, return an empty array
+//should go backward if x ys larger than y
+//constraints: none
+//base case: when x equals y, return the storage array
+
+//set integersInRange variable 
+//if x === y
+  //return integersInRange
+//else if x < y
+  //push the value of x into the array
+  //concat the result array with the result of calling the range function on x+1, y
+//else if x > y
+  //push the value of y into the array
+  //concat the result array with the result of calling the range function on x-1, y
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.

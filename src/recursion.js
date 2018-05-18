@@ -321,7 +321,31 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+ if (str1.length === 0 && str2.length === 0) {
+  return true;
+ } else if (str1[0] !== str2[0]) {
+  return false;
+ } else {
+  str1 = str1.slice(1);
+  str2 = str2.slice(1);
+  return compareStr(str1, str2);
+ }
 };
+//input: two strings
+//output: boolean representing if they're identical
+//constraints: none
+//edge cases: empty strings are identical
+//base case: if empty strings, return true
+
+//if str1 and str2.length === 0
+  //return true
+//else if str1.length !== str2.length
+  //return false (did not pass test case because this shortcut skips the recursion :p)
+//else if str1 at index zero !== str2 at index zero
+  //return false
+//else
+  //slice both strings
+  //pass the shortened strings into compareStr
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.

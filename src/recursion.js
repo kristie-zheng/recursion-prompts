@@ -248,7 +248,6 @@ var palindrome = function(string) {
     return true;
   } else if (string[0] === string[string.length-1]) {
     string = string.slice(1, string.length-1);
-    console.log(string);
     return palindrome(string);
   } else {
     return false;
@@ -279,7 +278,30 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  if (x ===0 || y === 0) {
+    return 0;
+  } 
+  else if (x > 0 && y > 0) {
+    //could probably use absolute value for double negative inputs
+    return x + multiply(x, y-1);
+  }
+  else if (x > 0 || y > 0) {
+    //do something
+  }
 };
+//input: two numbers, x and y
+//output: the result of multiplying x by y
+//edge cases: if there are negatives or decimals
+//constraints: none
+//base case: when y reaches zero, return the product
+
+//if y equals 0
+  //return 0
+//else if both x and y are positive
+  //return x + the result of calling multiply on y-1
+//else if both x and y are negative
+  //
+//else if one is positive or the other is
 
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods.

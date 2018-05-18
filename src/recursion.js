@@ -182,7 +182,6 @@ var exponent = function(base, exp) {
   }
 };
 
-console.log(exponent(2, 2))
 //input: a number representing the base and a number representing the expoenent
 //output: a number representing the base multiplied by itself exponent number of times
 //constraints: none
@@ -199,7 +198,28 @@ console.log(exponent(2, 2))
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  if (n === 1 || n === 2) {
+    return true;
+  } else if (n > 2) {
+    return powerOfTwo(n/2);
+  } else if (n < 2) {
+    return false;
+  }
 };
+//input: a number
+//output: a boolean that represents if a number is a power of two
+//edge cases: none
+//constraints: none
+//base case: if n is 1, return true
+
+//a power of two is when 2^x (1, 2, 4, 8, 16, 32)
+//if n is 1 or 2  
+  //return true
+//else if n is greater than 2
+  //return result of calling powerOfTwo on n/2
+//else if n < 2
+  //return false
+
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {

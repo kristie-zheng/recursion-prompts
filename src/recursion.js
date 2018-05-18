@@ -171,8 +171,28 @@ var range = function(x, y) {
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
+
 var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  } else if (exp > 0) {
+    return base * exponent(base, exp-1);
+  } else {
+    return base * exponent(base, exp+1);
+  }
 };
+
+console.log(exponent(2, 2))
+//input: a number representing the base and a number representing the expoenent
+//output: a number representing the base multiplied by itself exponent number of times
+//constraints: none
+//edge cases: none
+//base case; when exponent is equal to zero, return 1
+
+//if exponent is equal to zero
+  //return 1
+//else
+  //return base result of calling function with exp-1
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true

@@ -125,7 +125,7 @@ var isEven = function(n) {
   //return n+1 + the result of calling sumBelow on n+1
 var sumBelow = function(n) {
   if (n === 0) {
-    return 0
+    return 0;
   } else if (n > 0) {
     return n-1 + sumBelow(n-1);
   } else {
@@ -137,7 +137,7 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
   var integersInRange = [];
-  if (x === y) {
+  if (x === y || x+1 === y || x === y+1) {
     return integersInRange;
   } else if (x < y) {
     integersInRange.push(x+1);
@@ -154,7 +154,7 @@ var range = function(x, y) {
 //edge case: if x and y are the same, return an empty array
 //should go backward if x ys larger than y
 //constraints: none
-//base case: when x equals y, return the storage array
+//base case: when x equals y, or x and y are 1 apart, return the storage array
 
 //set integersInRange variable 
 //if x === y
@@ -273,14 +273,39 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  if (x === y || x === 0) {
-    return 0;
-  } else if (x < y) {
-    return x;
-  } else if (y === 0){
+  if (y === 0){
     return NaN;
-  } else if (x > y) {
-    return modulo(x-y, y);
+  } else if (x === y || x === 0) {
+    return 0;
+  } 
+  if (x < y) {
+    return x;
+  }
+  if (x > 0 && y > 0) {
+    if (x < y) {
+      return x;
+    } else {
+      return modulo(x-y, y);
+    }
+  } else if (x < 0 && y < 0) {
+    if (x > y) {
+      return x + y;
+    } else {
+      return modulo(x-y, y);
+    }
+  }
+  else if (x > 0 && y < 0) {
+    if (x < y) {
+      return x;
+    } else {
+      return modulo(x+y, y);
+    }
+  } else if (x < 0 && y > 0) {
+    if (x < y) {
+      return x;
+    } else {
+      return modulo(x+y, y)
+    }
   }
 };
 //input: two numeric values
@@ -290,14 +315,30 @@ var modulo = function(x, y) {
 //constraints: no native modulo, math methods, multiplication or division
 //base case: if x === y return 0
 
-//if x is equal to y
+//if y = 0
+  //return NaN
+//else if x is equal to y (or x is zero)
   //return 0
 //else if x is less than y
   //return x
-//else if y = 0
-  //return NaN
-//if x is greater than y
-  //subtract y from x and pass the new arg to modulo function
+//if both are positive
+    //subtract y from x and pass the new arg to modulo function
+    //the base case is when x is less than y
+      //return x
+//else if both are negative
+    //subtract y from x and pass the new arg to the modulo function
+    //the base case is when x is greater than y
+      //return x + y
+//else if x is negative and y is positive
+  //add y to x and pass the new arg to the modulo function
+   //the base case is when x is greater than y
+      //return x + y
+//else if x is positive and y is negative
+  //add y to x and pass the new arg to the modulo function
+  //the base case is when x is less than y
+    //return x
+
+
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.

@@ -497,7 +497,41 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+  var results = [];
+  if (n === 0) {
+    return results;
+  } else {
+    if (n % 3 === 0 && n % 5 === 0) {
+      results.push('FizzBuzz');
+    } else if (n % 3 === 0) {
+      results.push('Fizz');
+    } else if (n % 5 === 0) {
+      results.push('Buzz');
+    } else {
+      results.push(String(n));
+    }
+    return fizzBuzz(n-1).concat(results);
+  }
 };
+//input: an integer
+//output: an array of strings of numbers or chars based on the divisions
+//constraints: none
+//edge cases: none
+//base case: when n is zero, return the empty storage array
+
+//create a results array
+//if n is zero
+  //return the results array
+//else
+  //if n is divisible by three and five
+    //push 'fizzbuzz' into the array
+  //else if n is divisible by three
+    //push 'fizz' into the array
+  //else if n is divisible by five
+    //push 'buzz' into the array
+  //else
+    //push String(n) into the array
+  //concat the result of calling the function on n-1 with the results array
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3

@@ -343,12 +343,14 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-  if (x ===0 || y === 0) {
+  if (x === 0 || y === 0) {
     return 0;
   } 
   else if (x > 0 && y > 0) {
-    //could probably use absolute value for double negative inputs
     return x + multiply(x, y-1);
+  } 
+  else if (x < 0 && y < 0) {
+    return x - multiply(x, y+1);
   }
   else if (x > 0 || y > 0) {
     //do something
@@ -357,7 +359,7 @@ var multiply = function(x, y) {
 //input: two numbers, x and y
 //output: the result of multiplying x by y
 //edge cases: if there are negatives or decimals
-//constraints: none
+//constraints: no use of any math methods
 //base case: when y reaches zero, return the product
 
 //if y equals 0
@@ -467,11 +469,27 @@ var reverseArr = function(array) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  var storageArray = [];
+  if (length === 0) {
+    return storageArray;
+  } else {
+    storageArray.push(value);
+    return storageArray.concat(buildList(value, length-1));
+  }
 };
 //input: a value (char, num, etc) and the intended length of the generated array
 //output: an array with a value repeated length number of times
 //edge cases: if length is zero, return empty array
 //constraints: none
+//base case: when length is zero, return storageArray
+
+//create a storageArray variable
+//if length === 0
+  //return storageArray
+//else
+  //push value into array
+  //concatenate the storageArray with the result of calling function with length-1
+
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
 // For multiples of three, output 'Fizz' instead of the number.

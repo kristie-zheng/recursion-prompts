@@ -137,7 +137,7 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
   var integersInRange = [];
-  if (x === y) {
+  if (x === y || x+1 === y || x === y+1) {
     return integersInRange;
   } else if (x < y) {
     integersInRange.push(x+1);

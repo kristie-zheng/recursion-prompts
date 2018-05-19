@@ -178,7 +178,7 @@ var exponent = function(base, exp) {
   } else if (exp > 0) {
     return base * exponent(base, exp-1);
   } else {
-    return base * exponent(base, exp+1);
+    return 1 / base * exponent(base, exp+1);
   }
 };
 
@@ -397,11 +397,16 @@ var reverseArr = function(array) {
   //push array at last index (array[array.length-1]) into the reversedArray
   //slice out last index
   //return reversedArray concatenated with result of calling that function on the sliced array
+
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
 };
+//input: a value (char, num, etc) and the intended length of the generated array
+//output: an array with a value repeated length number of times
+//edge cases: if length is zero, return empty array
+//constraints: none
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
 // For multiples of three, output 'Fizz' instead of the number.

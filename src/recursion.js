@@ -537,5 +537,30 @@ var fizzBuzz = function(n) {
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  var count = 0;
+  if (array.length === 0) {
+    return count;
+  } else {
+    if (array[0] === value) {
+      count++;
+    }
+    array = array.slice(1);
+    return count + countOccurrence(array, value);
+  }
 };
 
+
+//input: an array of values (various types) and a target value
+//output: an integer representing the number of times the target appears in the array
+//edge cases: none
+//constraints: none
+//base case: when the array is empty, return the count
+
+//create a count variable
+//if array.length is zero 
+  //return count
+//else
+  //if array[0] matches target
+    //increment count
+//slice array's zeroth index off
+//return count plus result of calling countOccurrence again

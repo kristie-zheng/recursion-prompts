@@ -273,7 +273,31 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  if (x === y || x === 0) {
+    return 0;
+  } else if (x < y) {
+    return x;
+  } else if (y === 0){
+    return NaN;
+  } else if (x > y) {
+    return modulo(x-y, y);
+  }
 };
+//input: two numeric values
+//output: a single value representing the remainder of x/y
+//edge cases: anything divide by zero should be NaN
+//if y is greater than x, return y
+//constraints: no native modulo, math methods, multiplication or division
+//base case: if x === y return 0
+
+//if x is equal to y
+  //return 0
+//else if x is less than y
+  //return x
+//else if y = 0
+  //return NaN
+//if x is greater than y
+  //subtract y from x and pass the new arg to modulo function
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.

@@ -1,7 +1,29 @@
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  var mappedArray = [];
+  if (array.length === 0) {
+    return mappedArray;
+  } else {
+    mappedArray.push(callback(array[0]));
+    array = array.slice(1);
+    return mappedArray.concat(rMap(array, callback));
+  }
 };
+//input: an array and a callback function
+//output: a new array that has been transformed by the callback function
+//edge cases: none (presuming a callback is always given)
+//constraints: must return a new array
+//base case: if array is empty, return the new array
+
+//create mappedArray variable
+//if array.length is zero
+  //return mappedArray
+//else
+  // push the element at array[0] after applying the callback to it
+  // slice array's first index off
+  //concat the mappedArray with the result of calling rMap on the sliced array
+
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};

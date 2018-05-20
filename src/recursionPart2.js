@@ -272,8 +272,35 @@ var flatten = function(array) {
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
-var letterTally = function(str, obj) {
+var letterTally = function(str) {
+  var obj = {};
+  if (str.length === 0) {
+    return obj;
+  } else {
+    if (obj[str[0]] === undefined) {
+      obj[str[0]] = 1; 
+    } else if (obj[str[0]] !== undefined) {
+      obj[str[0]]++;
+    }
+    str = str.slice(1);
+    return Object.assign(obj, letterTally(str));
+  }
 };
+//input: a string an and object to hold tally
+//output: an object with letters as the keys and count of each letter's occurrence as value
+//constraints: none, but presumably the str will be letters
+//edge cases: none
+//base case: when str length is zero, return obj
+
+//if str length is zero
+  //return obj
+//else
+  //if str[0] does not exist as key in object
+    //add it and set value to one
+  //else it already exists
+    //increment value
+//slice str
+//return obj assigned with the key-val pairs of the objs created by calling the function on the sliced str
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the

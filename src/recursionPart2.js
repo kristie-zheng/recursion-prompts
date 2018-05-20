@@ -244,7 +244,31 @@ var nestedEvenSum = function(obj) {
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+  var results = [];
+  for (var i = 0; i < array.length; i++) {
+    if (!Array.isArray(array[i])) {
+      results.push(array[i]);
+    } else {
+      results = results.concat(flatten(array[i]));
+    }
+  }
+  return results;
 };
+
+//input: an array of arrays
+//output: a single-layer array
+//constraints: none
+//edge cases: none
+//base case: if array no longer contains further arrays
+
+//create results array
+//use for loop to iterate over teh array
+  //if typeof the element is not another array
+    //push into results
+  //else 
+    //call function on that element
+//return results
+
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}

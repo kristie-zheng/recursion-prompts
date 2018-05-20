@@ -30,7 +30,32 @@ var rMap = function(array, callback) {
 // countKeysInObj(obj, 'r') // 1
 // countKeysInObj(obj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+  var count = 0;
+  for (var property in obj) {
+    if (property === key) {
+      count++;
+    }
+    if (typeof obj[property] === 'object') {
+      console.log(obj[property]);
+      count += countKeysInObj(obj[property], key);
+    }
+  }
+  return count;
 };
+
+//input; an object and a target key
+//output: an integer representing the number of times the key exists in the object
+//constraints: none
+//edge cases: none
+//base case: when the value is not another object
+
+//create a count variable
+//use for-in loop to iterate over the object
+  //if property is === target key
+    //increment count
+  //if typeof value is an object
+    //call countKeysInObj on that value
+//return count
 
 // 23. Write a function that counts the number of times a value occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};

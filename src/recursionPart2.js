@@ -308,7 +308,37 @@ var letterTally = function(str) {
 // compress([1,2,2,3,4,4,5,5,5]) // [1,2,3,4,5]
 // compress([1,2,2,3,4,4,2,5,5,5,4,4]) // [1,2,3,4,2,5,4]
 var compress = function(list) {
+  var compressedArray = [];
+  if (list.length === 0) {
+    return compressedArray;
+  } else {
+    var previousValue = list[0];
+    list = list.slice(1);
+    var currentValue = list[0];
+    if (currentValue !== previousValue) {
+      compressedArray.push(previousValue);
+    }
+    return compressedArray.concat(compress(list));
+  }
 };
+
+//input: an array (non-nested)
+//output: an array with all consecutive duplicate elements reduced to a single
+//constraints: must generate new array
+//edge cases: none
+//base case: when the array's length is zero, return the new array
+
+//create a results array
+//if array's length is zero
+  //return results
+//else 
+  //create variable for previousValue array[0]
+  //slice the first index out
+  //create a second variable for currentValue array[0]
+    //if current value is not the same as previous value
+      //push currentValue into compressed array
+  //return results concat with calling compress on sliced array
+
 
 // 33. Augument every element in a list with a new value where each element is an array
 // itself.

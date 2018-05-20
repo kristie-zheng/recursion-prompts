@@ -344,8 +344,31 @@ var compress = function(list) {
 // itself.
 // augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+  var augmentedArray = [];
+  if (array.length === 0) {
+    return augmentedArray;
+  } else {
+    array[0].push(aug);
+    augmentedArray.push(array[0]);
+    array = array.slice(1);
+    return augmentedArray.concat(augmentElements(array, aug));
+  }
 };
 
+//input: a nested array and a value to add to each element's array
+//output: a nested array with the augmenter added to each element's array
+//edge cases: none
+//constraints: none
+//base case: if 
+
+//create a results array variable
+//if array.length is zero
+  //return results
+//else
+  //push the augmenter into array[0]'s array
+  //push array[0] into results
+  //slice off first value of the array
+  //return results array concat with calling augment elements on newly sliced array
 // 34. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]

@@ -62,7 +62,30 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  var count = 0;
+  for (var property in obj) {
+    if (obj[property] === value) {
+      count++;
+    } else if (typeof obj[property] === 'object') {
+      count += countValuesInObj(obj[property], value);
+    }
+  }
+  return count;
 };
+
+//input: an object and a target value 
+//output: a integer representing the number of times the value exists in the object
+//edge cases: none
+//constraints: none
+//base case: when the value of the key-value pair is not another object
+
+//create a count variable
+//use a for-in loop to iterate over object's outer layer
+  //if the value obj[property] equals the target value
+    //increment count
+  //else if the value obj[property] is an object
+    //add count to the result of calling countVals... on that obj
+//return count
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.

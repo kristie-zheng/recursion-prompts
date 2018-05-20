@@ -120,7 +120,29 @@ var replaceKeysInObj = function(obj, oldKey, newKey) {
 // fibonacci(5); // [0,1,1,2,3,5]
 // Note: The 0 is not counted.
 var fibonacci = function(n) {
+  var fibonacciNums = [0, 1];
+  if (n <= 0) {
+    return null;
+  } else if (n === 1) {
+    return fibonacciNums;
+  } else {
+    fibonacciNums.push(fibonacciNums[n-1] + fibonacciNums[n-2]);
+    return fibonacciNums.concat(fibonacci(n-1));
+  }
 };
+//input: an integer n
+//output: an array of the first n fibonacci numbers (noninclusive of zero)
+//edge cases: none
+//constraints: no negative inputs or zero: will return null
+//base case: when n is 1, return [0, 1]
+
+//declare a fibonacci array with [0, 1]
+//if n is 1
+  //return array
+//else
+  //sum two previous array numbers array[n-1] and array[n-2] 
+  //push the sum into the array
+//return array + result of calling fibonacci with n-1 
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]

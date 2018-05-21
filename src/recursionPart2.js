@@ -420,6 +420,19 @@ var minimizeZeroes = function(array) {
 var alternateSign = function(array) {
 };
 
+//input: an array of positive and negative numbers
+//output: a new array of the same numbers but with alternating signs
+//constraints: first number is positive regardless of original sign
+//edge cases: none
+//base case: if the array has a length of zero, return new array
+
+//create results array
+//if the array's length is zero
+  //return results
+//else
+  //check if the previous element's sign was negative or positive
+  //push the opposite of the current element into the results array
+
 // 36. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"

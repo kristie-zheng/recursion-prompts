@@ -278,33 +278,37 @@ var modulo = function(x, y) {
   } else if (x === y || x === 0) {
     return 0;
   } 
-  if (x < y) {
-    return x;
-  }
+  //if both are positive
   if (x > 0 && y > 0) {
     if (x < y) {
       return x;
     } else {
       return modulo(x-y, y);
     }
-  } else if (x < 0 && y < 0) {
+  }
+  //if both are negative 
+  else if (x < 0 && y < 0) {
+    console.log(x, y);
     if (x > y) {
-      return x + y;
+      return x;
     } else {
       return modulo(x-y, y);
     }
   }
+  //if x is positive and y is negative
   else if (x > 0 && y < 0) {
-    if (x < y) {
+    if (x < 0) {
       return x;
+    } else {
+      return modulo(x-y, y);
+    }
+  } 
+  //if x is negative and y is positive
+  else if (x < 0 && y > 0) {
+    if (x >= 0) {
+      return -x;
     } else {
       return modulo(x+y, y);
-    }
-  } else if (x < 0 && y > 0) {
-    if (x < y) {
-      return x;
-    } else {
-      return modulo(x+y, y)
     }
   }
 };

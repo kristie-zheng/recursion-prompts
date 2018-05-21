@@ -369,11 +369,49 @@ var augmentElements = function(array, aug) {
   //push array[0] into results
   //slice off first value of the array
   //return results array concat with calling augment elements on newly sliced array
+
 // 34. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  var results = [];
+  if (array.length === 0) {
+    return results;
+  } else {
+    var previousElement = array[0];
+    array = array.slice(1);
+    var currentElement = array[0];
+    if (previousElement !== 0) {
+      results.push(previousElement);
+    } else if (previousElement === 0 && currentElement === 0) {
+      results.push(currentElement);
+    } else if (previousElement === 0 && currentElement !== 0) {
+      results.push(currentElement);
+    }
+    array = array.slice(1);
+    return results.concat(minimizeZeroes(array));
+  }
 };
+//input: an array
+//output: an array with any consecutive zeros collapsed to a single zero
+//constraints: none
+//edge cases: none
+//base case: if array has length of zero, return result array
+
+//create results array
+//if array.length === 0
+  //return results array
+//else
+  //create var for previousElement array[0]
+  //slice off the first element
+  //create var for currentElement array[0]
+  //if previous element is not zero
+    //push previous
+  //else if previous element is zero and current element is not zero
+    //push previous
+  //slice first elemnet of array out
+//return results concat with minimizeZero on sliced array
+
 
 // 35. Alternate the numbers in an array between positive and negative regardless of
 // their original sign. The first number in the index always needs to be positive.

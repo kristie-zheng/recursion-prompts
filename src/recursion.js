@@ -160,6 +160,13 @@ var reverseArr = function(array) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  var newArr = [];
+  if (length === 0) {
+    return [];
+  } else {
+    newArr.push(value);
+    return newArr.concat(buildList(value, length - 1));
+  }
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.

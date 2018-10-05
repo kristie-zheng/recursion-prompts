@@ -61,11 +61,17 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 0) {
+    return 0;
+  } else {
+    return n + sumBelow(n-1);
+  }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
 };
 
 // 7. Compute the exponent of a number.
@@ -122,6 +128,15 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  var identical;
+  if (str1 === '' && str2 === '') {
+    identical = true;
+  } else if (str1[0] !== str2[0]) {
+    identical = false;
+  } else {
+    identical =compareStr(str1.slice(1), str2.slice(1));
+  }
+  return identical;
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter

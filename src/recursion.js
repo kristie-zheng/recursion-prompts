@@ -134,7 +134,7 @@ var compareStr = function(str1, str2) {
   } else if (str1[0] !== str2[0]) {
     identical = false;
   } else {
-    identical =compareStr(str1.slice(1), str2.slice(1));
+    identical = compareStr(str1.slice(1), str2.slice(1));
   }
   return identical;
 };
@@ -142,6 +142,14 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  var letters = [];
+  if (str === '') {
+    return [];
+  } else {
+    letters.push(str[0]);
+    return letters.concat(createArray(str.slice(1)));
+  }
+  return letters;
 };
 
 // 17. Reverse the order of an array

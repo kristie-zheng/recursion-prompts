@@ -71,7 +71,6 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-
 };
 
 // 7. Compute the exponent of a number.
@@ -80,6 +79,25 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // var total = 1;
+  // if (exp === 0) {
+  //   return 1;
+  // } else if (exp < 0) {
+  //   if (exp === 0) {
+  //     return total /= base;
+  //   } else {
+  //     total /= base;
+  //     return total /= exponent(base, exp+1);
+  //   }
+  // } else {
+  //   //case when exp is positive
+  //   if (exp === 1) {
+  //     return total *= base;
+  //   } else {
+  //     total *= base;
+  //     return total *= exponent(base, exp -1);
+  //   }
+  // }
 };
 
 // 8. Determine if a number is a power of two.
@@ -91,10 +109,23 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  var isPal;
+  if (string === '') {
+    return isPal = true;
+  } else {
+    if (string[0] !== string[string.length - 1]) {
+      isPal = false;
+      return isPal;
+    } else {
+      return isPal = palindrome(string.slice(1, string.length));
+    }
+  }
+  return isPal;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -154,6 +185,14 @@ var createArray = function(str) {
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+  var reversedArr = [];
+  if (array.length === 0) {
+    return [];
+  } else {
+    reversedArr.push(array[array.length-1]);
+    return reversedArr.concat(reverseArr(array.slice(0, array.length - 1)));
+  }
+  return reversedArr;
 };
 
 // 18. Create a new array with a given value and length.
@@ -225,6 +264,7 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+
 };
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename

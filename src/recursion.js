@@ -288,6 +288,15 @@ return count;
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+  // for (var prop in obj) {
+  //   if (prop === oldKey) {
+  //     obj[newKey] = obj[oldKey];
+  //     delete obj[oldKey];
+  //   } else if (typeof obj[oldKey] === 'object') {
+  //     return replaceKeysInObj(obj[oldKey], oldKey, newKey);
+  //   }
+  // }
+  // return obj
 };
 
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
@@ -310,11 +319,29 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
+  // var capped = [];
+  // if (array.length === 0) {
+  //   return [];
+  // } else {
+  //   capped.push(array[0].toUpperCase());
+  //   return capped += capitalizeWords(array.slice(1));
+  // }
+  // return capped;
 };
 
 // 28. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car','poop','banana']); // ['Car','Poop','Banana']
 var capitalizeFirst = function(array) {
+  var str;
+  var cap = [];
+  if (array.length === 0) {
+    return [];
+  } else {
+    str = array[0];
+    str = str[0].toUpperCase() + str.slice(1);
+    cap.push(str);
+    return cap.concat(capitalizeFirst(array.slice(1)));
+  }
 };
 
 // 29. Return the sum of all even numbers in an object containing nested objects.

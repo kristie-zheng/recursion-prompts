@@ -368,11 +368,34 @@ var nestedEvenSum = function(obj) {
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+  // var flatArray = [];
+  // for (var i = 0; i < array.length; i++) {
+  //   if (Array.isArray(array[i]) === false) {
+  //     flatArray.push(array[i]);
+  //   } else if (Array.isArray(array[i]) === true) {
+  //     flatArray.concat(flatten(array[i])) ;
+  //   }
+  // }
+  // return flatArray;
 };
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
 var letterTally = function(str, obj) {
+  if(!obj) {
+    obj = {};
+  }
+  var firstChar = str[0];
+  if (str === '') {
+    return obj;
+  }
+  if (obj[firstChar] === undefined) {
+    obj[firstChar] = 1;
+  } else {
+    obj[firstChar]++;
+  }
+  letterTally(str.slice(1), obj);
+  return obj;
 };
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated

@@ -105,25 +105,18 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-  // var total = 1;
-  // if (exp === 0) {
-  //   return 1;
-  // } else if (exp < 0) {
-  //   if (exp === 0) {
-  //     return total /= base;
-  //   } else {
-  //     total /= base;
-  //     return total /= exponent(base, exp+1);
-  //   }
-  // } else {
-  //   //case when exp is positive
-  //   if (exp === 1) {
-  //     return total *= base;
-  //   } else {
-  //     total *= base;
-  //     return total *= exponent(base, exp -1);
-  //   }
-  // }
+  var total = 1;
+  if (exp === 0) {
+    return 1;
+  } else if (exp < 0) {
+    //negative exponent
+    total /= base;
+    return total /= exponent(base, exp + 1);
+  } else {
+    //case when exp is positive
+    total *= base;
+    return total *= exponent(base, exp -1);
+  }
 };
 
 // 8. Determine if a number is a power of two.
@@ -131,6 +124,14 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  if (n === 2 || n === 1) {
+    return true;
+  } else if (n < 2) {
+    // if n is less than 2 once divided
+    return false
+  } else if (n > 2) {
+    return powerOfTwo(n / 2);
+  }
 };
 
 // 9. Write a function that reverses a string.

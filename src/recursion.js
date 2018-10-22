@@ -66,19 +66,35 @@ var sumBelow = function(n) {
   } else if (n > 0) {
     return n - 1 + sumBelow(n-1);
   } else {
-    return n + 1 + sumBelow (n + 1)
+    return n + 1 + sumBelow (n + 1);
   }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  //three scenarios
+  //a normal range (positive)
+  //a range where the numbers are consecutive or the same (there are no values w/in range)
+  //a range where the second number is smaller than the first (counts backward)
   var result = [];
-  if (y - x === 2) {
+  if (y - x === 0 || y - x === 1) {
+    return result;
+  }
+  if (Math.abs(y - x) === 2) {
+    if (y - x === 2) {
     return [x + 1];
+    } else {
+      return [x - 1];
+    }
   } else {
-    result.push(x);
-    return result.concat(range(x+1, y));
+    if (y - x > 2) {
+    result.push(y - 1);
+    return range(x, y -1).concat(result);
+    } else if (y - x < 0) {
+    result.push(x - 1);
+    return result.concat(range(x - 1, y));
+    } 
   }
   return result;
 };

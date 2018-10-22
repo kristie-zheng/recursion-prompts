@@ -63,14 +63,24 @@ var isEven = function(n) {
 var sumBelow = function(n) {
   if (n === 0) {
     return 0;
+  } else if (n > 0) {
+    return n - 1 + sumBelow(n-1);
   } else {
-    return n + sumBelow(n-1);
+    return n + 1 + sumBelow (n + 1)
   }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var result = [];
+  if (y - x === 2) {
+    return [x + 1];
+  } else {
+    result.push(x);
+    return result.concat(range(x+1, y));
+  }
+  return result;
 };
 
 // 7. Compute the exponent of a number.
@@ -122,7 +132,7 @@ var reverse = function(string) {
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
   var isPal;
-  if (string === '') {
+  if (string === '' || string.length === 1) {
     return isPal = true;
   } else {
     if (string[0] !== string[string.length - 1]) {
